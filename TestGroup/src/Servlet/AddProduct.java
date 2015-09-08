@@ -40,6 +40,8 @@ public class AddProduct extends HttpServlet {
 		Goshuser user = (Goshuser) session.getAttribute("user");
 
 		
+		
+		
 		Goshitem goshitem=new Goshitem();
 		List<Goshitem> list = GoshitemDB.getAllProducts(user);
 		request.setAttribute("list", list);

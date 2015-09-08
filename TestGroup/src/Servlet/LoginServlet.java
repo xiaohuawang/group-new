@@ -35,6 +35,8 @@ public class LoginServlet extends HttpServlet {
 		
 		String username = request.getParameter("username");
 		
+		
+		
 		Goshuser goshuser=new Goshuser();
 		goshuser.setUserName(username);
 		goshuser.setUserId(24);
@@ -43,6 +45,10 @@ public class LoginServlet extends HttpServlet {
 		
 		session.setAttribute("user", goshuser);
 		getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+		
+		
+		
+		
 		
 		
 	}

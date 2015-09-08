@@ -34,7 +34,10 @@ public class ConfirmServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-String piclink=request.getParameter("piclink");
+		
+		
+		
+        String piclink=request.getParameter("piclink");
 		HttpSession session = request.getSession();
 		String priceStr = request.getParameter("price");
 		String description = request.getParameter("description");
@@ -42,6 +45,8 @@ String piclink=request.getParameter("piclink");
 		//String productType = request.getParameter("productType");
 		String avail = request.getParameter("avail");
 		String shipCostStr = request.getParameter("shipCost");
+	
+		
 		
 		double price = Double.parseDouble(priceStr);
 		double shipCost = Double.parseDouble(shipCostStr);

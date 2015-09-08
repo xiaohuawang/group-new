@@ -27,6 +27,9 @@
   </form>
 </div>
 
+
+
+
 <c:if test="${user != null}"> 
    <a href = "AddProduct">Add product</a>
 </c:if> 

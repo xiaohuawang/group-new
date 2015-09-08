@@ -30,6 +30,8 @@ public class EditServlet extends HttpServlet {
     }
 
 	/**
+	 * 
+	 * 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,7 +45,14 @@ public class EditServlet extends HttpServlet {
 		Goshitem goshitem=new Goshitem();
 		List<Goshitem> list = GoshitemDB.getAllProducts(user);
 		request.setAttribute("list", list);
+		
+	
+		
 		getServletContext().getRequestDispatcher("/edit.jsp").forward(request, response);
+		
+		
+		
+		
 		
 		
 		

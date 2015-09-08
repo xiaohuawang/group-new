@@ -46,11 +46,12 @@ public class GoshitemDB {
 		trans.begin(); 
 		try 
 		{
+			System.out.println("in insert");
 		em.merge(product);
 			trans.commit();
 		} catch (Exception e) 
 		{
-			System.out.println(e);
+			e.printStackTrace();
 			trans.rollback();
 		} 
 		finally 
@@ -102,5 +103,50 @@ public class GoshitemDB {
 		}
 		return products;
 	}
+	
+	
+	
+	
+	public static Goshitem getProduct(long itemId)
+	{
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		try
+		{
+			Goshitem goshitem = em.find(Goshitem.class, itemId);
+			return goshitem;
+		}
+		finally
+		{
+			em.close();
+		}
+	}
+	
+	
+
+	public static List<Goshitem> getLineItemsByOrderID(int sellerid)
+	{
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String queryStr = "SELECT l FROM Goshitem l where l.seller_id = " + sellerid;
+		List<Goshitem> goshitem = null;
+		try
+		{
+			Query query = em.createQuery(queryStr);
+			goshitem =  query.getResultList();
+			System.out.println("size = " + goshitem.size());
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			em.close();
+		}
+		return goshitem;
+	}
+	
+	
+	
+	
 	
 }
